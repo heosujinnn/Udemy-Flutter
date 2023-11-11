@@ -14,9 +14,11 @@ class _MainScreenState extends State<MainScreen> {
       appBar: AppBar(
         title: const Text('메인화면'),
       ),
+      // stless
       // alt+enter -> remove 할 수 있음.
       // ctrl+alt+L : 자동정렬
-      body: const Column(
+      // ctrl + .  : 코드 접기
+      body: Column(
         //세로방향으로 쌓아나감
         mainAxisAlignment: MainAxisAlignment.center, // (세로에서 중앙)
         crossAxisAlignment: CrossAxisAlignment.start, // 가로에서 시작
@@ -35,12 +37,37 @@ class _MainScreenState extends State<MainScreen> {
               // 무조건 넣는건 아닙니다. 코드가 완성 됐을 때 alt enter 하면 됨 !!! 앱 포파먼스 개선을 위해.
             ],
           ),
-          Row(children: [
-            //Expanded 위젯은 비율!! 2:1:1 이라는 뜻
-            Expanded(flex:2, child: Text('홍길동'),),
-            Expanded(child: Text('홍길동'),),
-            Expanded(child: Text('홍길동'),),
-          ],)
+          Row(
+            children: [
+              //Expanded 위젯은 비율!! 2:1:1 이라는 뜻
+              Expanded(
+                flex: 2,
+                child: Text('홍길동'),
+              ),
+              Expanded(
+                child: Text('홍길동'),
+              ),
+              Expanded(
+                child: Text('홍길동'),
+              ),
+            ],
+          ),
+          Container(
+            width: 300,
+            height: 100,
+            margin: EdgeInsets.only(left: 16,right: 0,top: 0, bottom: 0),
+            alignment: Alignment.center, //정렬 중앙
+            child: Text('허수진'),
+           // color: Colors.pinkAccent,
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.pink),
+
+          ),
+
+          SizedBox( // color 지원 안하고 단순히 박스를 만들고 싶을 때
+            width: 100,
+            height: 100,
+            child: Text('Hi'),
+          )
         ],
       ),
     );
