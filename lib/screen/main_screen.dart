@@ -16,6 +16,7 @@ class _MainScreenState extends State<MainScreen> {
       ),
       // stless
       // alt+enter -> remove 할 수 있음.
+      // alt+enter -> wrap with Row ... 등 기능 추가도 가능!
       // ctrl+alt+L : 자동정렬
       // ctrl + .  : 코드 접기
       body: Column(
@@ -55,19 +56,32 @@ class _MainScreenState extends State<MainScreen> {
           Container(
             width: 300,
             height: 100,
-            margin: EdgeInsets.only(left: 16,right: 0,top: 0, bottom: 0),
-            alignment: Alignment.center, //정렬 중앙
+            margin: EdgeInsets.only(left: 16, right: 0, top: 0, bottom: 0),
+            alignment: Alignment.center,
+            //정렬 중앙
             child: Text('허수진'),
-           // color: Colors.pinkAccent,
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.pink),
-
+            // color: Colors.pinkAccent,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.pink,
+            ),
           ),
-
-          SizedBox( // color 지원 안하고 단순히 박스를 만들고 싶을 때
-            width: 100,
-            height: 100,
-            child: Text('Hi'),
-          )
+          Text(
+            'Hi',
+            style: TextStyle(
+              color: Colors.green,
+              fontWeight: FontWeight.bold,
+              fontSize: 30,
+            ),
+          ),
+          // image 와 icon
+          Row(
+            children: [
+              Image.asset('assets/dog.png', width: 100,height: 100,),
+              Icon(Icons.home_outlined,size: 150,) //아이콘은 size로
+            ],
+          ),
+          
         ],
       ),
     );

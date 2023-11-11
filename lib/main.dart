@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:study_flutter/main_screen.dart';
-import 'package:study_flutter/splash_screen.dart';
+import 'package:study_flutter/screen/main_screen.dart';
+import 'package:study_flutter/screen/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
