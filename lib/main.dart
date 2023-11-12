@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false, //디버그 아이콘 없애기
       title: 'Flutter Demo',
       routes: {
         '/': (context) => SplashScreen(),
