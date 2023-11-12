@@ -10,6 +10,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
 
   List lstHello = ['허수진','ㅎㅇ','안녕','팅후루'] ;
+  TextEditingController idController=TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +23,17 @@ class _MainScreenState extends State<MainScreen> {
       // alt+enter -> wrap with Row ... 등 기능 추가도 가능!
       // ctrl+alt+L : 자동정렬
       // ctrl + .  : 코드 접기
-      body: ListView.builder(
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text('${lstHello[index]}'),
-            subtitle: Text('서브타이틀'),
-          );
-        },
-        itemCount: lstHello.length,
+      body: Column(
+        children: [
+          TextField(
+            controller: idController,
+            decoration: InputDecoration(labelText: '아이디를 입력해주세요'),
+          ),
+          ElevatedButton(onPressed: (){
+            // 클릭 시 동작을 구현한다.
+            print(idController.text.toString());
+          }, child: Text('아이디 입력 값을 가져온다.'))
+        ],
       ),
     );
   }
