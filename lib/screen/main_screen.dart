@@ -20,68 +20,23 @@ class _MainScreenState extends State<MainScreen> {
       // ctrl+alt+L : 자동정렬
       // ctrl + .  : 코드 접기
       body: Column(
-        //세로방향으로 쌓아나감
-        mainAxisAlignment: MainAxisAlignment.center, // (세로에서 중앙)
-        crossAxisAlignment: CrossAxisAlignment.start, // 가로에서 시작
         children: [
-          Text('반갑습니다.'),
-          Text('저는 유데미 강의를 듣고 있는 학생입니다.'),
-          Text('저는 허수진 입니다.'),
-          Row(
-            //가로방향으로 쌓아나가는 것
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Text('안녕'),
-              Text('신기하지'),
-              Text('이것은 가로 방향으로 쌓는 위젯이야.')
-              // const 제안: 경고 없어져요 -> 앱 실행되기 전부터 미리 생성을 끝내놓는다.
-              // 무조건 넣는건 아닙니다. 코드가 완성 됐을 때 alt enter 하면 됨 !!! 앱 포파먼스 개선을 위해.
-            ],
-          ),
-          Row(
-            children: [
-              //Expanded 위젯은 비율!! 2:1:1 이라는 뜻
-              Expanded(
-                flex: 2,
-                child: Text('홍길동'),
-              ),
-              Expanded(
-                child: Text('홍길동'),
-              ),
-              Expanded(
-                child: Text('홍길동'),
-              ),
-            ],
-          ),
           Container(
-            width: 300,
-            height: 100,
-            margin: EdgeInsets.only(left: 16, right: 0, top: 0, bottom: 0),
-            alignment: Alignment.center,
-            //정렬 중앙
-            child: Text('허수진'),
-            // color: Colors.pinkAccent,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.pink,
-            ),
-          ),
-          Text(
-            'Hi',
-            style: TextStyle(
-              color: Colors.green,
-              fontWeight: FontWeight.bold,
-              fontSize: 30,
-            ),
-          ),
-          // image 와 icon
-          Row(
-            children: [
-              Image.asset('assets/dog.png', width: 100,height: 100,),
-              Icon(Icons.home_outlined,size: 150,) //아이콘은 size로
-            ],
-          ),
-          
+            margin: EdgeInsets.all(32),
+            width: 200,
+            height: 70,
+            child: ElevatedButton(
+                onPressed: () {
+                  // 클릭 되었을 때 동작하고 싶은 액션 정의
+                  print('버튼이 클릭되었습니다!');
+                },
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.green,
+                    onPrimary: Colors.yellow,
+                    elevation: 10 // 높이:그림자값
+                    ),
+                child: Text('눌러보세요.')),
+          )
         ],
       ),
     );
