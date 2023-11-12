@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
+/// 메인화면
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
 
   @override
   State<MainScreen> createState() => _MainScreenState();
 }
+
 /// stless
 /// alt+enter -> remove 할 수 있음.
 /// alt+enter -> wrap with Row ... 등 기능 추가도 가능!
@@ -13,10 +15,6 @@ class MainScreen extends StatefulWidget {
 /// ctrl + .  : 코드 접기
 
 class _MainScreenState extends State<MainScreen> {
-  TextEditingController idController = TextEditingController();
-  String msg = '이 곳에 입력값이 업데이트 됩니다.';
-  ValueNotifier<int> counter = ValueNotifier<int>(0);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,29 +23,18 @@ class _MainScreenState extends State<MainScreen> {
       ),
       body: Column(
         children: [
-          TextField(
-            controller: idController,
-            decoration: InputDecoration(labelText: '아이디를 입력해주세요'),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              // setState(() {
-              //   // widget 업데이트!! setState 안에 넣는것이 좋습니다. 값만 리로딩되니까 성능적으로 굿
-              //   msg = idController.text.toString();
-              // });
-              counter.value=30;
-            },
-            child: Text('아이디 입력 값을 가져온다.'),
-          ),
+          TextButton(
+              onPressed: () {
+                //서브 화면으로 이동하는데 생성하면서 이동한다!
+                //Navigator.pushNamed(context, '/sub');
+                Navigator.pushNamed(context, '/sub', arguments: 'hello');
 
-          //ValueNotifier로 값 변경하기 count:0 에서 버튼 클릭하면 30으로 바뀜
-          ValueListenableBuilder(valueListenable: counter, builder:(context, value, child) {
-            return Text('Count: $value');
-          }),
-          Text(
-            msg,
-            style: TextStyle(fontSize: 30),
-          )
+                //서브 화면에서 main화면을 없애고 이동한다. 스택을 지우고 이동
+                /// Navigator.pushReplacementNamed(context, '/sub');
+                //context 란? 현재 화면이나 객체에 담겨있는 모든 정보,
+                // 내 화면이 어디다 라고 알리기 위해 넘김
+              },
+              child: Text('텍스트를 클릭하여 서브화면으로 이동')),
         ],
       ),
     );
