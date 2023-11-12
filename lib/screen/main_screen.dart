@@ -15,6 +15,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   TextEditingController idController = TextEditingController();
   String msg = '이 곳에 입력값이 업데이트 됩니다.';
+  ValueNotifier<int> counter = ValueNotifier<int>(0);
 
   @override
   Widget build(BuildContext context) {
@@ -30,13 +31,19 @@ class _MainScreenState extends State<MainScreen> {
           ),
           ElevatedButton(
             onPressed: () {
-              setState(() {
-                // widget 업데이트!! setState 안에 넣는것이 좋습니다. 값만 리로딩되니까 성능적으로 굿
-                msg = idController.text.toString();
-              });
+              // setState(() {
+              //   // widget 업데이트!! setState 안에 넣는것이 좋습니다. 값만 리로딩되니까 성능적으로 굿
+              //   msg = idController.text.toString();
+              // });
+              counter.value=30;
             },
             child: Text('아이디 입력 값을 가져온다.'),
           ),
+
+          //ValueNotifier로 값 변경하기 count:0 에서 버튼 클릭하면 30으로 바뀜
+          ValueListenableBuilder(valueListenable: counter, builder:(context, value, child) {
+            return Text('Count: $value');
+          }),
           Text(
             msg,
             style: TextStyle(fontSize: 30),
